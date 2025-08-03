@@ -17,11 +17,6 @@
     combos {
         compatible = "zmk,combos";
 
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <25 26>;
-        };
-
         double_quotation {
             bindings = <&kp APOS>;
             key-positions = <35 34>;
