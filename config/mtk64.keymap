@@ -14,101 +14,25 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <11 12>;
-        };
-
-        double_quotation {
-            bindings = <&kp APOS>;
-            key-positions = <20 21>;
-        };
-
-        eq {
-            bindings = <&kp EQUAL>;
-            key-positions = <24 25>;
-        };
-
-        kagi_down_combo {
-            bindings = <&kakko_macro>;
-            key-positions = <21 18>;
-        };
-
-        henkan {
-            bindings = <&ime_toggle>;
-            key-positions = <22 23>;
-        };
-
-        Escape {
-            bindings = <&kp ESCAPE>;
-            key-positions = <0 1>;
-        };
-
-        Delete {
-            bindings = <&kp DELETE>;
-            key-positions = <8 9>;
-        };
-    };
-
-    macros {
-        to_layer_0: to_layer_0 {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
-                <&macro_press>;
-        };
-
-        kakko_macro: kakko_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-            tap-ms = <40>;
-            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET>;
-        };
-
-        ime_toggle: ime_toggle {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp GRAVE>,
-                <&macro_release>,
-                <&kp LALT>;
-        };
-
-        macro_lang_sw: macro_lang_sw {
-            compatible = "zmk,behavior-macro";
-            label = "MACRO_LANG_SW";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp LCTRL &kp SPACE &kp LCTRL>; // Controlキーを離す
-        };
-    };
-
     behaviors {
-        zen_han_toggle: zen_han_toggle {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&ime_toggle>, <&ime_toggle>;
-        };
+        // 垂直スクロール用のbehaviorの設定
 
-        encoder_msc_down_up: encoder_msc_down_up {
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCODER_MSC_DOWN_UP";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
-            tap-ms = <20>;
+            tap-ms = <20>; // スクロールのタップ時間
+        };
+
+        // 水平スクロール用のbehaviorの設定
+
+        scroll_left_right: behavior_sensor_rotate_mouse_wheel_left_right {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
+            tap-ms = <20>; // スクロールのタップ時間
         };
     };
 };
