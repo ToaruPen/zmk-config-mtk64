@@ -59,13 +59,26 @@
         bracket: new_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&kp LEFT_BRACKET>,
-                <&macro_press>,
-                <&kp RIGHT_BRACKET>,
-                <&macro_release>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET>;
 
             label = "NEW_MACRO";
+        };
+
+        // macOS の「英字」「かな」キー相当（環境により効かない場合は中身のキーコードを差し替えてください）
+        mac_eisu: mac_eisu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANG2>;
+
+            label = "MAC_EISU";
+        };
+
+        mac_kana: mac_kana {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp INT_KANA>;
+
+            label = "MAC_KANA";
         };
     };
 
@@ -74,7 +87,7 @@
 
         default_layer {
             bindings = <
-&kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp F5  &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp DOUBLE_QUOTES  &kp LCTRL  &kp A  &mt LEFT_CONTROL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G  &kp H  &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RIGHT_CONTROL L  &mt RIGHT_SHIFT SEMI  &kp SINGLE_QUOTE  &kp LSHFT  &mt LEFT_SHIFT Z  &kp X  &kp C  &kp V  &kp B  &kp TILDE  &kp MINUS  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp F7  &kp LALT  &kp LGUI  &kp SPACE  &kp BACKSPACE  &kp TAB  &kp ENTER  &kp F11  &kp F12  &tog 2  &kp ENTER  &mo 3  &mo 3  &kp ENTER  &tog 2  &kp LANGUAGE_3  &kp LANGUAGE_4  &mo 1  &mo 2  &mo 3  &mo 1  &mo 2  &mo 3  &mo 1  &mo 2  &mo 3
+&kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp F5  &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp DOUBLE_QUOTES  &kp LCTRL  &kp A  &mt LEFT_CONTROL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G  &kp H  &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RIGHT_CONTROL L  &mt RIGHT_SHIFT SEMI  &kp SINGLE_QUOTE  &kp LSHFT  &mt LEFT_SHIFT Z  &kp X  &kp C  &kp V  &kp B  &kp TILDE  &kp MINUS  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp F7  &kp LALT  &kp LGUI  &kp SPACE  &kp BACKSPACE  &kp TAB  &kp ENTER  &kp F11  &kp F12  &tog 2  &kp ENTER  &mo 3  &mo 3  &kp ENTER  &tog 2  &mac_eisu  &mac_kana  &mo 1  &mo 2  &mo 3  &mo 1  &mo 2  &mo 3  &mo 1  &mo 2  &mo 3
             >;
 
             sensor-bindings =
@@ -101,7 +114,7 @@
 
         layer_3 {
             bindings = <
-&kp ESCAPE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp HOME  &trans  &kp N7  &kp N8  &kp N9  &kp SLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE  &trans  &kp LEFT_SHIFT  &kp PERIOD  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp ASTERISK  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EXCLAMATION  &kp QUESTION  &kp BACKSLASH  &trans  &trans  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS  &kp PLUS  &kp AT_SIGN  &kp HASH  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+	&kp ESCAPE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp HOME  &trans  &kp N7  &kp N8  &kp N9  &kp SLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE  &trans  &kp LEFT_SHIFT  &kp PERIOD  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp ASTERISK  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EXCLAMATION  &kp QUESTION  &kp BACKSLASH  &trans  &trans  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS  &kp PLUS  &kp AT_SIGN  &kp HASH  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <
