@@ -75,7 +75,7 @@
         mac_kana: mac_kana {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp INTERNATIONAL_4>;
+            bindings = <&kp LANG1>;
             label = "MAC_KANA";
         };
     };
