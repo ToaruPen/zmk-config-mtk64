@@ -20,15 +20,16 @@
 */
 
 &spi0 {
-    status = "okay";
+    /* Trackball (PMW3610) disabled for power saving. */
+    status = "disabled";
 };
 
 &trackball { 
-    status = "okay";
+    status = "disabled";
 };
 
 &trackball_listener {
-    status = "okay";
+    status = "disabled";
 };
 
 &xiao_serial { status = "disabled"; };
